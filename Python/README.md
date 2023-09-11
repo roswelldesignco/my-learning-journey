@@ -2,7 +2,7 @@
 
 Parameters are the names used for inputs when *definintg* a function. Arguments are the names of the inputs supplied whena function is *called*.
 
-```
+```python
 # a and b are parameters
 def add(a,b)
     return a + b
@@ -17,7 +17,7 @@ ___
 
 A default value is created by using the assignment (=) operator in the function signature.
 
-```
+```python
 def get_greeting(email, name="there"):
     return f"Hello {name}, welcome! You've registered your email: {email}"
 
@@ -52,7 +52,7 @@ Scope = "containers"
 When we create variables in a function (by giving names to our parameteres for example), the data is *not* available outside that function.
 
 Example:
-```
+```python
 ### Global Scope
 x = 5
 
@@ -91,10 +91,10 @@ Flooring
 ## Exponents in Python
 
 2 ** 2
-# 4
+= 4
 
 3 ** 2 
-# 9
+= 9
 
 ## Incremental variables
 
@@ -102,7 +102,7 @@ In JavaScript or Go ++ syntax is used for incrementing a number variable
 In Python we use "+=" operator instead.
 
 Example:
-```
+```python
 star_rating = 4
 star_rating += 1
 
@@ -112,7 +112,7 @@ star_rating += 1
 
 ### Other operators
 
-```
+```python
 # Subtractors
 star_rating = 4
 star_rating -= 1 
@@ -125,11 +125,17 @@ star_rating *= 2
 star_rating = 4
 start_rating /= 2
 
+# Exponents
+# reads as "three squared" or
+# "three raised to the second power"
+3 ** 2
+# 9
+
 ```
 
-## Example from assignment using -= subtractor to show incremental damange and return current health total:
+### Example from assignment using -= subtractor to show incremental damange and return current health total:
 
-```
+```python
 def get_hurt(current_health, damage):
     current_health -= damage
     return current_health
@@ -164,7 +170,7 @@ Scientific notation = a way of expressing numbers that are too large or too smal
 
 The number following "e" specifies how many places to move the decimal to the right for positive number, or to the left for a negative number.
 
-```
+```python
 print(16e3)
 # Prints 16000.0
 
@@ -177,7 +183,7 @@ print(7.1e-2)
 
 Python allows you to represent large numbers in the decimal format using underscores instead of commas to make it easier to read.
 
-```
+```python
 num = 16_000
 print(num)
 # Prints 16000
@@ -207,12 +213,167 @@ Example:
 
 In Python you can write an integer using binary syntax using the 0b prefix
 
-```
+```python
 print(0b0001)
 # Prints 1
 
 print(0b0101)
 # Prints 5
 
+```
+
+___
+
+# Loops
+
+Loops allow us to do the same operation multiple times without having to write it explicitly each time.
+
+For example, I want to print numbers 0-9.
+
+```python
+for i in range (0, 5)
+    print(i)
+
+# Prints 0 1 2 3 4
+
+```
+
+This code says:
+
+1. Start with i equals 0. (i in range (0))
+2. If i is greater than or equal to 10 (range(0,10)), exit the loop.
+3. Print i to the console. (print(i))
+4. Add 1 to i. (range defaults to incrementing by 1)
+5. Go back to step 2
+
+The result is that numbers 0-4 are logged to the console in order.
+
+We can change the incremental value, or direction of increments by using the following:
+
+```python
+for i in range (0, 10, 2):
+    print (i)
+# prints in increments of 2 for 0-10:
+# o 
+# 2
+# 4
+# 6 
+# 8
+
+for i in range (3, 0, -1)
+    print (i)
+# prints in increments down from 3-0, by 1
+# 3
+# 2 
+# 1
+
+```
+
+To calculate the sum of all the odd numbers starting at 1 up to the given end number, you can modify the `sum_of_odd_numbers` function as follows:
+
+```python
+def sum_of_odd_numbers(end):
+    total = 0
+    for i in range(1, end + 1, 2):
+        total += i
+    return total
+```
+
+In this modified function:
+
+1. We initialize the `total` variable to 0, which will be used to store the sum of odd numbers.
+2. We use a `for` loop with `range(1, end + 1, 2)` to iterate through all odd numbers from 1 up to and including the `end` number. The `range` function generates a sequence of numbers starting from 1, ending at `end`, and stepping by 2, which ensures that only odd numbers are considered.
+3. Inside the loop, we add each odd number `i` to the `total` variable.
+4. Finally, we return the `total` variable, which contains the sum of all odd numbers in the specified range.
+
+___
+
+# Christmas Bonus Challenge
+
+There are currently 102 employees, whose IDs are simply the numbers from 1 to number_of_employees. Loop over each employee id and:
+
+- If the employee is a C-Level Executive add the c_level_bonus to the dollars_needed.
+- If the employee is a manager add the manager_bonus to the dollars_needed.
+- Otherwise, add the standard_bonus to the dollars_needed.
+
+Use the variables given as necessary.
+
+```python
+
+number_of_employees = 102
+
+c_level_bonus = 2000
+manager_bonus = 1000
+standard_bonus = 500
+
+# C Level Executives
+sarah_id = 1
+mary_id = 2
+
+# Managers
+john_id = 6
+bob_id = 44
+joe_id = 18
+
+dollars_needed = 0
+
+# Don't touch above this line
+
+for i in range(1, number_of_employees + 1):
+    if i == sarah_id or i == mary_id:
+        dollars_needed += c_level_bonus
+    elif i == john_id or i == bob_id or i == joe_id:
+        dollars_needed += manager_bonus
+    else:
+        dollars_needed += standard_bonus
+
+# Don't touch below this line
+
+print(f"{dollars_needed} dollars are needed to fulfill all bonuses")
+
+# prints 55500 dollars are needed to fulfill all bonuses
+
+```
+___
+
+# Lists in Python
+
+Some languages call them "arrays", but in Python they are called lists.
+
+Lists in python are declared using square brackets, with commas separating each item:
+
+```python
+# Example
+inventory = ["Iron Breastplate", "Healing Potion", "Leather Scraps"]
+```
+Lists can contain items of any data type, in this example we have a list of strings.
+
+Sometimes it may be hard to read when we are manually creating lists if all of the items are on one line of code. We can declare the array using multiple lines:
+
+```python
+flower_types = [
+    "daffodill",
+    "rose",
+    "chrysanthemum"
+]
+```
+## Indexing into lists
+
+We can access items in a list by using their *index*. **Indexes start at 0 (the first item)** and increment by one with each successsive item.
+
+```python
+best_languages = ["JavaScript", "Go", "Rust", "Python", "C"]
+print(best_languages[1])
+# prints "Go", because index 1 was provided
+```
+
+## List length
+
+The length of a list can be calculated using the **len()** function. 
+
+```python
+fruits = ["apple", "banana", "pear"]
+length = len(fruits)
+# Prints: 3
 ```
 
