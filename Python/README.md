@@ -376,4 +376,126 @@ fruits = ["apple", "banana", "pear"]
 length = len(fruits)
 # Prints: 3
 ```
+## List Updates
 
+We can change items that exists at a given index. For example we can change `Leather` to `Leather Armor` in the `inventory` list in the following way:
+
+```python
+inventory = ["Leather", "Healing Potion", "Iron Ore"]
+inventory[0] = "Leather Armor"
+# inventory: ['Leather Armor', 'Healing Potion', 'Iron Ore']
+```
+
+## Appending in Python
+
+It's common to create an empty list then fill it with values using a loop. We can add values to the end of a list using the `.append()` method:
+
+```python
+cards = []
+cards.append("nvidia")
+cards.append("amd")
+# the cards list is now ['nvidia', 'amd']
+```
+
+## Pop Values
+
+`.pop()` is the opposite of `.append()`. Pop removes the last element from the array and returns it for use. 
+
+For example:
+
+```python
+vegetables = ["broccoli", "cabbage", "kale", "tomato"];
+last_vegetable = vegetables.pop()
+# vegetables = ['broccoli', 'cabbage', 'kale']
+# last_vegetable = 'tomato'
+```
+## Counting the Items in a List
+
+```python
+items = [
+    "Potion",
+    "Leather Scraps",
+    "Bread",
+    "Iron Ore",
+    "Light Leather",
+    "Bread",
+    "Shortsword",
+    "Longsword",
+    "Iron Mace",
+    "Shortsword",
+    "Shortsword",
+]
+
+potion_count = 0
+bread_count = 0
+shortsword_count = 0
+
+# We can count how many times each of the following items show up in the list above using if/elif:
+
+for i in range(0, len(items)):
+    if items[i] == "Potion":
+        potion_count += 1
+    elif items[i] == "Bread":
+        bread_count += 1
+    elif items[i] == "Shortsword":
+        shortsword_count += 1
+        
+
+print(f"You have {potion_count} potions in your inventory.")
+print(f"You have {bread_count} pieces of bread in your inventory.")
+print(f"You have {shortsword_count} shortswords in your inventory.")
+
+# You have 1 potions in your inventory.
+# You have 2 pieces of bread in your inventory.
+# You have 3 shortswords in your inventory.
+```
+
+## No-Index Syntax
+
+When we don't need to know the index, just the value:
+
+```python
+trees = ['oak', 'pine', 'maple']
+for tree in trees:
+  print(tree)
+
+# Prints:
+# oak
+# pine
+# maple
+```
+`tree`, the variable declared using the `in` keyword, directly accesses the value in the array rather than the index of the value. This is a cleaner way to write the code, as opposed to:
+
+```python
+trees = ['oak', 'pine', 'maple']
+for i in range(0, len(trees)):
+  print(trees[i])
+
+# Prints:
+# oak
+# pine
+# maple
+```
+Which achieves the same result.
+
+## Finding the difference in an array
+
+We can use loops over an indexes to determine the differences, and *index* where the values are different.
+
+```python
+
+old_character_levels = [1, 42, 43, 53, 12, 3, 32, 34, 54, 32, 43]
+new_character_levels = [1, 42, 45, 54, 12, 3, 32, 38, 54, 32, 43]
+
+
+# Because `old_character_levels` and `new_character_levels` are the same lengths, we can reuse `i` to index into both
+
+for i in range(0, len(old_character_levels)):
+    if old_character_levels[i] != new_character_levels[i]:
+        print(i)
+
+# Prints:
+# 2
+# 3
+# 7 
+```
