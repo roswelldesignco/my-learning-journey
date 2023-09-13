@@ -529,3 +529,116 @@ for i in range(0, 10):
 print(odd_numbers)
 # Prints [1, 3, 5, 7, 9]
 ```
+# Slicing Lists
+
+The slicing operator allows us to cut and slice lists
+Slicing operator is simply `:`
+
+The syntax is as follows:
+```python
+my_list[ start : stop : step ]
+```
+
+For example:
+```python
+scores = [50, 70, 30, 20, 90, 10, 50]
+# Display list
+print(scores[1:5:2])
+# Prints [70, 20]
+```
+The above reads as "give me a slice of the `scores` list from index 1, up to but no including 5, skipping every 2nd value.
+
+## Omitting Sections
+
+You can also omit various ("start","stop", or"step"). For example, `numbers[:3]` means "get all items from the start up to (but not including) index 3".
+
+```python
+scores = [50, 70, 30, 20, 90, 10, 50]
+print(score[:3])
+
+# Prints [50, 70, 30]
+#Index:     0 - 1 - 2 | <-- stops before index 3
+```
+`numbers[3:]` means "get all items from index 3 to the end".
+
+```python
+scores = [50, 70, 30, 20, 90, 10, 50]
+print(score[3:])
+
+# Prints [20, 90, 10, 50]
+#Index:  ...3 - 4 - 5 - 6 ] <-- starts at index 3 goes to end.
+```
+
+## Using only the "Step" Section
+
+```python
+numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+numbers[::2] # Gives [0, 2, 4, 6, 8]
+```
+
+## Negative Indices
+
+Negative indicies count from the end of the list. For example, `numbers[-1]` gives the last item in the list, `numbers[-2]` gives the second last item, and so on.
+
+```python
+numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+numbers[-3:] # Gives [7, 8, 9]
+```
+# List Deletion
+
+Python has a built-in keyword `del` that deletes items from objects. In the case of a list, you can delete specific indexes or entire slices.
+
+```python
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# delete the fourth item
+del nums[3]
+print(nums)
+# Output: [1, 2, 3, 5, 6, 7, 8, 9]
+
+# delete the second item up to the fourth item
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+del nums[1:3] # [Index positions 1 *to* 3 but not 3]
+print(nums)
+# Output: [1, 4, 5, 6, 7, 8, 9]
+
+# delete all elements
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+del nums[:]
+print(nums)
+# Output: []
+```
+
+# Tuples
+
+Tuples are collections of data that are ordered and unchangeable. You can think of a tuple as a `List` with a fixed size. Tuples are created with round brackets.
+
+```python
+my_tuple = ("this is a tuple", 45, True)
+print(my_tuple[0])
+# this is a tuple
+print(my_tuple[1])
+# 45
+print(my_tuple[2])
+# True
+```
+While it's usually bad practice to store items of different types in a list it's not a problem with Tuples. (Because they have a fixed size, it's easy to keep track of which indexes store which types of data).
+
+Tuples are often used to store very small groups (like 2 or 3 items) of data.
+
+Example:
+
+```python
+dog = ("Fido", 4)
+# Dog Name, Dog Age
+```
+
+- Multiple Tuples can be stored within a list.
+
+```python
+my_tuples = [("this is the first tuple in the list", 45, True),("this is the second tuple in the list", 21, False)]
+print(my_tuples[0][0]) # this is the first tuple in the list
+print(my_tuples[0][1]) # 45
+print(my_tuples[1][0]) # this is the second tuple in the list
+print(my_tuples[1][2]) # False
+```
