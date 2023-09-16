@@ -642,3 +642,117 @@ print(my_tuples[0][1]) # 45
 print(my_tuples[1][0]) # this is the second tuple in the list
 print(my_tuples[1][2]) # False
 ```
+
+# Dictionaries
+
+Dictionaries in Python are used to store data values in `key` -> `value` pairs. Dictionaries are great for storing groups of information.
+
+```python
+def get_character_record(name, server, level, rank):
+    return {
+        "name": name,
+        "server": server,
+        "level": level,
+        "rank": rank,
+        "id": f"{name}#{server}",
+    }
+
+
+def main():
+    rec = get_character_record("bloodwarrior123", "server1", 5, 1)
+    print_rec(rec)
+
+    rec = get_character_record("fronzenboi", "server2", 2, 1)
+    print_rec(rec)
+
+    rec = get_character_record("slasher69", "server3", 2, 5)
+    print_rec(rec)
+
+
+def print_rec(rec):
+    print(f"name: {rec['name']}")
+    print(f"server: {rec['server']}")
+    print(f"level: {rec['level']}")
+    print(f"rank: {rec['rank']}")
+    print(f"id: {rec['id']}")
+    print("---")
+
+
+main()
+
+```
+Keep in mind, because dictionaries rely on unique keys-- you can't have two of the same key in the same dictionary. If you try to use the same key twice, the first value will simply be overwritten.
+
+## Accessing Dictrionary Values
+
+Dictionary elements must be accessible somehow in code, otherwise they wouldn't be useful. 
+
+A value is retrieved from a dictionary by specifying its corresponding key in square brakets. The syntax looks similar to indexing into a list.
+
+```python
+car = {
+    'make': 'tesla',
+    'model': '3'
+}
+print(car['make'])
+# Prints: tesla
+```
+## Setting Dictionary Values
+
+It's common to create blank dictionaries and populate it later using dynamic values.
+
+The syntax is the same as getting data out of a key, just use the assignment operator (`=`) to give that key a value.
+
+dict[key] = value
+
+```python
+names = ["jack bronson", "jill mcarty", "john denver"]
+
+names_dict = {}
+for name in names:
+    # .split() returns a list of strings
+    # where each string is a single word from the original
+    names_arr = name.split()
+
+    # here we update the dictionary
+    names_dict[names_arr[0]] = names_arr[1]
+
+print(names_dict)
+# Prints: {'jack': 'bronson', 'jill': 'mcarty', 'john': 'denver'}
+```
+## Updating Dictionary Values
+
+```python
+full_names = ["jack bronson", "james mcarty", "jack denver"]
+
+names_dict = {}
+for full_name in full_names:
+    # .split() returns a list of strings
+    # where each string is a single word from the original
+    names = full_name.split()
+    first_name = names[0]
+    last_name = names[1]
+    names_dict[first_name] = last_name
+
+print(names_dict)
+# {
+#   'jack': 'denver',
+#   'james': 'mcarty'
+# }
+```
+
+## Counting inputs in a dictionary
+
+Example:
+```python
+def count_enemies(enemy_names):
+    enemies_dict = {}
+    for enemy_names in enemy_names:
+        if enemy_names in enemies_dict:
+            enemies_dict[enemy_names] += 1
+        else:
+            enemies_dict[enemy_names] = 1
+    return enemies_dict
+
+# Prints: {'jackal': 6, 'kobold': 3, 'soldier': 3, 'gremlin': 1}
+```
